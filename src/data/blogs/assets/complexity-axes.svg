@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 580" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif">
+  <style>
+    .title { font-size: 18px; font-weight: 600; fill: #1a1a1a; }
+    .subtitle { font-size: 13px; fill: #555; }
+    .axis-name { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+    .axis-sub { font-size: 11px; fill: #666; }
+    .scale-label { font-size: 10px; fill: #999; }
+    .legend-text { font-size: 12px; fill: #1a1a1a; }
+  </style>
+
+  <!-- Title -->
+  <text x="400" y="32" class="title" text-anchor="middle">The six axes of AI problem complexity</text>
+  <text x="400" y="52" class="subtitle" text-anchor="middle">Score your problem on each. Two or more high scores = custom build territory.</text>
+
+  <!-- Center of the radar -->
+  <!-- cx=400, cy=310, max radius=180 -->
+
+  <!-- Concentric rings -->
+  <circle cx="400" cy="310" r="180" fill="none" stroke="#e4e4e7" stroke-width="1"/>
+  <circle cx="400" cy="310" r="135" fill="none" stroke="#e4e4e7" stroke-width="1"/>
+  <circle cx="400" cy="310" r="90"  fill="none" stroke="#e4e4e7" stroke-width="1"/>
+  <circle cx="400" cy="310" r="45"  fill="none" stroke="#e4e4e7" stroke-width="1"/>
+
+  <!-- Scale labels along the top axis -->
+  <text x="408" y="265" class="scale-label">low</text>
+  <text x="408" y="220" class="scale-label">med</text>
+  <text x="408" y="175" class="scale-label">high</text>
+  <text x="408" y="130" class="scale-label">critical</text>
+
+  <!-- 6 spokes (60 degrees apart, starting at top) -->
+  <!-- Top:        (400, 130)   -- axis 1 -->
+  <!-- Top-right:  (400 + 180*sin60, 310 - 180*cos60) = (556, 220) -->
+  <!-- Bot-right:  (556, 400) -->
+  <!-- Bottom:     (400, 490) -->
+  <!-- Bot-left:   (244, 400) -->
+  <!-- Top-left:   (244, 220) -->
+
+  <line x1="400" y1="310" x2="400" y2="130" stroke="#d4d4d8"/>
+  <line x1="400" y1="310" x2="556" y2="220" stroke="#d4d4d8"/>
+  <line x1="400" y1="310" x2="556" y2="400" stroke="#d4d4d8"/>
+  <line x1="400" y1="310" x2="400" y2="490" stroke="#d4d4d8"/>
+  <line x1="400" y1="310" x2="244" y2="400" stroke="#d4d4d8"/>
+  <line x1="400" y1="310" x2="244" y2="220" stroke="#d4d4d8"/>
+
+  <!-- Axis labels -->
+  <text x="400" y="115" class="axis-name" text-anchor="middle">Token volume</text>
+  <text x="400" y="100" class="axis-sub" text-anchor="middle">context size per query</text>
+
+  <text x="575" y="210" class="axis-name" text-anchor="start">Modality</text>
+  <text x="575" y="225" class="axis-sub" text-anchor="start">text / image / audio / video</text>
+
+  <text x="575" y="410" class="axis-name" text-anchor="start">Reasoning depth</text>
+  <text x="575" y="425" class="axis-sub" text-anchor="start">lookup vs. multi-hop / agentic</text>
+
+  <text x="400" y="513" class="axis-name" text-anchor="middle">Personalisation</text>
+  <text x="400" y="528" class="axis-sub" text-anchor="middle">row-level security, per-user data</text>
+
+  <text x="225" y="410" class="axis-name" text-anchor="end">Latency &amp; scale</text>
+  <text x="225" y="425" class="axis-sub" text-anchor="end">concurrency, response time</text>
+
+  <text x="225" y="210" class="axis-name" text-anchor="end">Trust &amp; audit</text>
+  <text x="225" y="225" class="axis-sub" text-anchor="end">explainability, compliance</text>
+
+  <!-- "Copilot's comfort zone" — low/med band, lightly shaded -->
+  <!-- Hexagon at radius ~90 (med) -->
+  <polygon points="400,220 478,265 478,355 400,400 322,355 322,265"
+           fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-opacity="0.4" stroke-dasharray="4 3"/>
+
+  <!-- Example: the SharePoint Text-to-SQL project (mostly high) -->
+  <!-- Token volume: high (radius 135) → (400, 175) -->
+  <!-- Modality: low (45)             → (400 + 45*sin60, 310 - 45*cos60) = (439, 287.5) -->
+  <!-- Reasoning depth: high (135)    → (400 + 135*sin60, 310 + 135*cos60) = (517, 377.5) -->
+  <!-- Personalisation: critical (180)→ (400, 490) -->
+  <!-- Latency: med (90)              → (400 - 90*sin60, 310 + 90*cos60) = (322, 355) -->
+  <!-- Trust: high (135)              → (400 - 135*sin60, 310 - 135*cos60) = (283, 242.5) -->
+  <polygon points="400,175 439,287.5 517,377.5 400,490 322,355 283,242.5"
+           fill="#dc2626" fill-opacity="0.18" stroke="#dc2626" stroke-width="2"/>
+
+  <!-- Dots on each vertex of the example polygon -->
+  <circle cx="400" cy="175" r="4" fill="#dc2626"/>
+  <circle cx="439" cy="287.5" r="4" fill="#dc2626"/>
+  <circle cx="517" cy="377.5" r="4" fill="#dc2626"/>
+  <circle cx="400" cy="490" r="4" fill="#dc2626"/>
+  <circle cx="322" cy="355" r="4" fill="#dc2626"/>
+  <circle cx="283" cy="242.5" r="4" fill="#dc2626"/>
+
+  <!-- Legend at bottom -->
+  <rect x="180" y="555" width="14" height="14" fill="#10b981" fill-opacity="0.10" stroke="#10b981" stroke-opacity="0.5" stroke-dasharray="3 2"/>
+  <text x="200" y="567" class="legend-text">Copilot's comfort zone (low–medium on all axes)</text>
+
+  <rect x="510" y="555" width="14" height="14" fill="#dc2626" fill-opacity="0.18" stroke="#dc2626" stroke-width="2"/>
+  <text x="530" y="567" class="legend-text">Example: SharePoint Text-to-SQL with RLS</text>
+</svg>

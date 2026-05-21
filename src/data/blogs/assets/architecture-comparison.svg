@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif">
+  <style>
+    .title { font-size: 18px; font-weight: 600; fill: #1a1a1a; }
+    .subtitle { font-size: 13px; fill: #555; }
+    .panel-title { font-size: 16px; font-weight: 600; fill: #1a1a1a; }
+    .panel-sub { font-size: 12px; fill: #666; font-style: italic; }
+    .box-text { font-size: 12px; font-weight: 500; fill: #1a1a1a; }
+    .box-sub { font-size: 10px; fill: #555; }
+    .opaque-text { font-size: 11px; fill: #999; font-style: italic; }
+    .arrow { stroke: #6b7280; stroke-width: 1.5; fill: none; }
+    .arrow-dim { stroke: #d1d5db; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+  </style>
+
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6b7280"/>
+    </marker>
+    <marker id="arr-dim" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#d1d5db"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" class="title" text-anchor="middle">What you control: Copilot Studio vs. a custom build</text>
+  <text x="450" y="50" class="subtitle" text-anchor="middle">Same problem, very different visibility into the pipeline</text>
+
+  <!-- Divider -->
+  <line x1="450" y1="75" x2="450" y2="605" stroke="#e4e4e7" stroke-dasharray="3 3"/>
+
+  <!-- ============ LEFT PANEL: Copilot Studio ============ -->
+  <text x="225" y="95" class="panel-title" text-anchor="middle">Copilot Studio</text>
+  <text x="225" y="113" class="panel-sub" text-anchor="middle">Managed platform — much is opaque</text>
+
+  <!-- Data sources -->
+  <rect x="100" y="135" width="250" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="225" y="158" class="box-text" text-anchor="middle">SharePoint / OneDrive / Teams</text>
+  <text x="225" y="174" class="box-sub" text-anchor="middle">15 lists max, 2,048 rows per query</text>
+
+  <!-- Arrow down -->
+  <line x1="225" y1="190" x2="225" y2="220" class="arrow-dim" marker-end="url(#arr-dim)"/>
+
+  <!-- Opaque box -->
+  <rect x="100" y="225" width="250" height="180" rx="6" fill="#f4f4f5" stroke="#9ca3af" stroke-dasharray="6 4"/>
+  <text x="225" y="248" class="box-text" text-anchor="middle">Microsoft's black box</text>
+  <text x="225" y="270" class="opaque-text" text-anchor="middle">• embedding model — fixed</text>
+  <text x="225" y="288" class="opaque-text" text-anchor="middle">• vector index — opaque</text>
+  <text x="225" y="306" class="opaque-text" text-anchor="middle">• retrieval strategy — opaque</text>
+  <text x="225" y="324" class="opaque-text" text-anchor="middle">• reranking — opaque</text>
+  <text x="225" y="342" class="opaque-text" text-anchor="middle">• context window allocation — opaque</text>
+  <text x="225" y="360" class="opaque-text" text-anchor="middle">• underlying model — opaque</text>
+  <text x="225" y="380" class="box-sub" text-anchor="middle" font-style="italic">no programmatic eval, no tracing</text>
+
+  <!-- Arrow down -->
+  <line x1="225" y1="410" x2="225" y2="440" class="arrow-dim" marker-end="url(#arr-dim)"/>
+
+  <!-- Output -->
+  <rect x="100" y="445" width="250" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="225" y="468" class="box-text" text-anchor="middle">Response</text>
+  <text x="225" y="484" class="box-sub" text-anchor="middle">Hope it's right. No grounding score.</text>
+
+  <!-- What you control -->
+  <rect x="100" y="520" width="250" height="80" rx="6" fill="#fff" stroke="#d4d4d8"/>
+  <text x="225" y="542" class="box-text" text-anchor="middle">What you control</text>
+  <text x="225" y="560" class="box-sub" text-anchor="middle">✓ Knowledge source selection</text>
+  <text x="225" y="576" class="box-sub" text-anchor="middle">✓ ~2,000-token instruction prompt</text>
+  <text x="225" y="592" class="box-sub" text-anchor="middle">✗ Almost everything else</text>
+
+  <!-- ============ RIGHT PANEL: Custom ============ -->
+  <text x="675" y="95" class="panel-title" text-anchor="middle">Custom RAG build</text>
+  <text x="675" y="113" class="panel-sub" text-anchor="middle">Every component is yours to choose</text>
+
+  <!-- Data sources -->
+  <rect x="540" y="135" width="270" height="40" rx="6" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="675" y="160" class="box-text" text-anchor="middle">Any source — SP, SQL, APIs, files, SaaS</text>
+
+  <!-- Arrow -->
+  <line x1="675" y1="180" x2="675" y2="200" class="arrow" marker-end="url(#arr)"/>
+
+  <!-- Embedding -->
+  <rect x="540" y="205" width="270" height="36" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="675" y="228" class="box-text" text-anchor="middle">Embedding model (your choice + benchmark)</text>
+
+  <!-- Arrow -->
+  <line x1="675" y1="246" x2="675" y2="266" class="arrow" marker-end="url(#arr)"/>
+
+  <!-- Vector DB -->
+  <rect x="540" y="270" width="270" height="36" rx="6" fill="#ede9fe" stroke="#7c3aed"/>
+  <text x="675" y="293" class="box-text" text-anchor="middle">Vector DB + metadata (Pinecone, AISearch, ...)</text>
+
+  <!-- Arrow -->
+  <line x1="675" y1="311" x2="675" y2="331" class="arrow" marker-end="url(#arr)"/>
+
+  <!-- Orchestration -->
+  <rect x="540" y="335" width="270" height="80" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+  <text x="675" y="356" class="box-text" text-anchor="middle">Orchestration layer</text>
+  <text x="675" y="374" class="box-sub" text-anchor="middle">routing • SQL gen • RLS • reranking</text>
+  <text x="675" y="390" class="box-sub" text-anchor="middle">hybrid search • guardrails (in/out)</text>
+  <text x="675" y="406" class="box-sub" text-anchor="middle">token-budgeted context assembly</text>
+
+  <!-- Arrow -->
+  <line x1="675" y1="420" x2="675" y2="440" class="arrow" marker-end="url(#arr)"/>
+
+  <!-- LLM -->
+  <rect x="540" y="445" width="270" height="40" rx="6" fill="#fed7aa" stroke="#ea580c"/>
+  <text x="675" y="463" class="box-text" text-anchor="middle">LLM of your choice</text>
+  <text x="675" y="478" class="box-sub" text-anchor="middle">up to ~1M-token context</text>
+
+  <!-- Arrow -->
+  <line x1="675" y1="490" x2="675" y2="510" class="arrow" marker-end="url(#arr)"/>
+
+  <!-- Response -->
+  <rect x="540" y="515" width="270" height="36" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="675" y="538" class="box-text" text-anchor="middle">Response + citations + trace</text>
+
+  <!-- Eval/observability ring -->
+  <rect x="540" y="560" width="270" height="40" rx="6" fill="#fce7f3" stroke="#db2777"/>
+  <text x="675" y="582" class="box-text" text-anchor="middle">Eval harness + observability + feedback</text>
+  <text x="675" y="596" class="box-sub" text-anchor="middle">groundedness, citation accuracy, drift</text>
+</svg>
