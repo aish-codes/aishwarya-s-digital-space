@@ -18,13 +18,14 @@
 ~15% of requests.
 
 - **When the choice isn't obvious**, score your problem against six complexity axes:
-	- token volume
-	- modality
-	- reasoning depth
-	- personalisation
-	- latency/scale
-	- trust/audit  
-two or more high scores → custom build.
+  - token volume
+  - modality
+  - reasoning depth
+  - personalisation
+  - latency/scale
+  - trust/audit  
+
+  Two or more high scores → custom build.
 
 - **Invest in evaluation from day one**, whichever path you pick. Without a way to programmatically score answers against a known-good test set, you cannot answer *"how do you know it's working?"* in a production review.
 
