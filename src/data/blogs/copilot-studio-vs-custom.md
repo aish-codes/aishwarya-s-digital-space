@@ -60,13 +60,13 @@ Every LLM has a **context window** — a hard ceiling on the total tokens it can
 
 **Throughout this document, I express every size limit in tokens**
 
-![How text becomes tokens](https://raw.githubusercontent.com/aish-codes/aishwarya-s-digital-space/main/src/data/blogs/assets/tokens.svg)
+![How text becomes tokens](https://github.com/aish-codes/aishwarya-s-digital-space/blob/main/src/data/blogs/assets/tokens.svg)
 
 ### 2. Embeddings and retrieval
 
 An **embedding** is a numerical vector that captures the meaning of a chunk of text. For example, "How do I reset my password?" and "I forgot my login credentials" produce vectors that sit close to each other in vector space even though they share no words. This is what powers **semantic search**: convert a question to a vector, find the closest matches in a vector database, and feed those back into the LLM as context. You'll hear this called **RAG (Retrieval-Augmented Generation)** when applied to documents, or **semantic retrieval** more generally — but the core idea is the same in all variants: bring the right context to the model at the right time. Some custom builds are pure RAG; others (like the Text-to-SQL example later in this guide) use retrieval as one component inside a larger pipeline.
 
-![Embeddings: meaning becomes geometry](https://raw.githubusercontent.com/aish-codes/aishwarya-s-digital-space/main/src/data/blogs/assets/embeddings.svg)
+![Embeddings: meaning becomes geometry](https://github.com/aish-codes/aishwarya-s-digital-space/blob/main/src/data/blogs/assets/embeddings.svg)
 
 ### 3. The evaluation harness — the part most teams skip
 
@@ -92,7 +92,7 @@ A **multimodal** model can natively ingest more than one type of input — text 
 **Bottom line:** Score your problem on six independent axes — token volume, modality, reasoning depth, personalisation, latency/scale, and trust/audit. Each axis is graded low / medium / high. **Two or more high scores means you are in custom-build territory.** Lower scores mean Copilot or MCP will probably serve.
 **You should evaluate your problem against all six before deciding.**
 
-![The six axes of AI problem complexity](https://raw.githubusercontent.com/aish-codes/aishwarya-s-digital-space/main/src/data/blogs/assets/complexity-axes.svg)
+![The six axes of AI problem complexity](https://github.com/aish-codes/aishwarya-s-digital-space/blob/main/src/data/blogs/assets/complexity-axes.svg)
 
 ### Axis 1: Token volume — how much context does a single answer require?
 
@@ -304,7 +304,7 @@ These are line items that often get cut from initial scopes and then cost three 
 
 ### High-level architecture of a custom solution
 
-![Copilot Studio vs custom architecture](https://raw.githubusercontent.com/aish-codes/aishwarya-s-digital-space/main/src/data/blogs/assets/architecture-comparison.svg)
+![Copilot Studio vs custom architecture](https://github.com/aish-codes/aishwarya-s-digital-space/blob/main/src/data/blogs/assets/architecture-comparison.svg)
 
 The diagram makes the point that's easy to lose in tables: in Copilot Studio almost every component is opaque to you, while in a custom build every component is a deliberate choice you can benchmark and swap. Both are valid — but you should know which one you're signing up for.
 
@@ -404,7 +404,7 @@ Where MCP starts to break down: dynamic query planning across many data sources,
 
 ## Decision flowchart
 
-![Decision flowchart: Copilot Studio vs MCP vs Custom](https://raw.githubusercontent.com/aish-codes/aishwarya-s-digital-space/main/src/data/blogs/assets/decision-flowchart.svg)
+![Decision flowchart: Copilot Studio vs MCP vs Custom](https://github.com/aish-codes/aishwarya-s-digital-space/blob/main/src/data/blogs/assets/decision-flowchart.svg)
 
 The flowchart collapses the whole guide into two questions. Question 1 is the hard-trigger check — if any of those four conditions apply, custom is the answer regardless of the M365 question. Question 2 only matters if you cleared the first; it separates Copilot's native ground (M365 + Q&A) from problems that need MCP's lightweight system-integration layer.
 
