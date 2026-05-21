@@ -3,6 +3,7 @@ import { blogPosts } from "@/data/blogPosts";
 import { ArrowLeft } from "lucide-react";
 import Footer from "@/components/Footer";
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -36,7 +37,7 @@ const BlogPost = () => {
         <h1 className="text-3xl md:text-4xl font-bold mt-2 mb-8">{post.title}</h1>
 
         <div className="prose prose-neutral max-w-none dark:prose-invert">
-          <Markdown>{post.content}</Markdown>
+          <Markdown remarkPlugins={[remarkGfm]}>{post.content}</Markdown>
         </div>
       </article>
       <Footer />

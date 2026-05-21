@@ -28,7 +28,7 @@
   <text x="408" y="130" class="scale-label">critical</text>
 
   <!-- 6 spokes (60 degrees apart, starting at top) -->
-  <!-- Top:        (400, 130)   -- axis 1 -->
+  <!-- Top:        (400, 130)   axis 1 -->
   <!-- Top-right:  (400 + 180*sin60, 310 - 180*cos60) = (556, 220) -->
   <!-- Bot-right:  (556, 400) -->
   <!-- Bottom:     (400, 490) -->
