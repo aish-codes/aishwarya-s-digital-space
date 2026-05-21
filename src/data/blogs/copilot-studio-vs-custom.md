@@ -1,5 +1,3 @@
-# Microsoft Copilot Agents vs. Custom AI Solutions: A Manager's Decision Guide
-
 **For senior managers and engineering leads who own the AI build-vs-buy decision**
 
 ---
