@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(sips -s format png /Users/aish/Desktop/Projects/aish-code.github.io/public/favicon.ico --out favicon.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight favicon.png)",
+      "WebFetch(domain:aish-code.github.io)",
+      "Bash(curl -s https://api.github.com/repos/aish-codes/aish-code.github.io)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\({k:d.get\\(k\\) for k in ['name','homepage','has_pages','default_branch','private','message']}\\)\")",
+      "Bash(npm -v)",
+      "Bash(git rm *)",
+      "Bash(rm -rf icons)",
+      "Bash(mkdir icons *)",
+      "Bash(qlmanage -t -s 512 -o icons /Users/aish/Desktop/Projects/aish-code.github.io/public/favicon.svg)",
+      "Bash(python3 make_ico.py /Users/aish/Desktop/Projects/aish-code.github.io/public/favicon.ico)",
+      "Bash(cp icons/icon-180.png /Users/aish/Desktop/Projects/aish-code.github.io/public/apple-touch-icon.png)",
+      "Bash(sips -s format png /Users/aish/Desktop/Projects/aish-code.github.io/public/favicon.ico --out verify-ico.png)"
+    ]
+  }
+}

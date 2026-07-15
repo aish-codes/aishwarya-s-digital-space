@@ -1,0 +1,20 @@
+<!--
+  Source of truth for the site icons. Edit this, then run `npm run icons` to regenerate
+  public/favicon.ico and public/apple-touch-icon.png from it.
+
+  The baseline is positioned explicitly (y=45) rather than with dominant-baseline, which
+  favicon renderers don't reliably support — a fallback would drop the letters off-centre.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="AS">
+  <rect width="64" height="64" rx="14" fill="#36404F" />
+  <text
+    x="32"
+    y="45"
+    text-anchor="middle"
+    font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+    font-size="36"
+    font-weight="700"
+    letter-spacing="-2"
+    fill="#F7F8FA"
+  >AS</text>
+</svg>

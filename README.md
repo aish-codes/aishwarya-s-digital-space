@@ -1,73 +1,85 @@
-# Welcome to your Lovable project
+# Aishwarya — AI Engineer Portfolio
 
-## Project info
+Personal portfolio site. Built with Vite, React, TypeScript, Tailwind and shadcn/ui, and
+prerendered to static HTML so crawlers and link previews see real content.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Local development
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The dev server runs at http://localhost:8080.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Build
 
-**Use GitHub Codespaces**
+```sh
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This runs three steps in order:
 
-## What technologies are used for this project?
+1. `build:client` — the normal Vite client build into `dist/`.
+2. `build:server` — an SSR bundle of `src/entry-server.tsx` into `.prerender/` (a throwaway
+   build artifact, not deployed).
+3. `prerender` — runs the server bundle, renders the app to an HTML string, and injects it
+   into `dist/index.html`.
 
-This project is built with:
+The result is that `dist/index.html` ships the fully rendered page instead of an empty
+`<div id="root">`. React then hydrates it in the browser, so the nav, dark mode toggle and
+smooth scrolling all still work.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Preview the built output with `npm run preview`.
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Deployed on Vercel. Vercel auto-detects the Vite preset, runs `npm run build`, and serves
+`dist/` — the prerender step is part of that build, so no extra configuration is needed.
 
-## Can I connect a custom domain to my Lovable project?
+## Why prerendering
 
-Yes, you can!
+A plain client-rendered SPA serves an empty `<div id="root">`. Googlebot can execute JS and
+will eventually index it, but most other crawlers won't: LinkedIn, Twitter/X, Slack and
+Discord link previews, and most AI crawlers read the raw HTML only. Prerendering makes the
+content visible to all of them without giving up React.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Resume
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+The "Download Resume" button serves `public/resume.pdf`. That PDF is generated from
+`resume/resume.html`:
+
+```sh
+npm run resume
+```
+
+Edit `resume/resume.html`, re-run the command, and commit the regenerated PDF. Anything in
+`[square brackets]` renders in red and marks a placeholder that still needs real
+information — those are meant to be replaced, not shipped.
+
+This is deliberately *not* part of `npm run build`: it shells out to headless Chrome, which
+the Vercel build image doesn't have. The PDF is committed to the repo instead. Set
+`CHROME_PATH` if the script can't find your browser.
+
+The layout is tuned to fit exactly one A4 page with very little slack, so adding content
+will likely push it to a second page. If that happens, either trim elsewhere or accept two
+pages — `page-break-inside: avoid` on sections keeps the break tidy.
+
+## Social preview image
+
+`public/og-image.png` is the card shown when the site is linked on LinkedIn, Slack, etc.
+It's generated from `assets/og-image.svg` the same way as the resume:
+
+```sh
+npm run og
+```
+
+Same caveat: not part of `npm run build`, so commit the regenerated PNG. If you change your
+title or headline, update this too — it's easy to forget, since nothing on the site itself
+displays it.
+
+## Editing content
+
+Page sections live in `src/components/` and are composed in `src/pages/Index.tsx`. Each
+section keeps its data in a local array at the top of the file. `src/components/ui/` is
+shadcn/ui primitives — generally not edited by hand.
