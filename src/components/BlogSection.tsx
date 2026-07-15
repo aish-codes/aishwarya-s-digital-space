@@ -1,35 +1,6 @@
+import { Link } from "react-router-dom";
 import { Clock, ArrowRight, Calendar } from "lucide-react";
-
-const blogPosts = [
-  {
-    title: "Building RAG Applications with Langchain and Azure",
-    excerpt: "A comprehensive guide to creating Retrieval-Augmented Generation solutions for enterprise document processing.",
-    date: "Dec 15, 2024",
-    readTime: "8 min read",
-    link: "#",
-  },
-  {
-    title: "Mastering Alteryx: Advanced Macro Development",
-    excerpt: "Deep dive into creating reusable Alteryx macros that can transform your data workflows and boost productivity.",
-    date: "Nov 28, 2024",
-    readTime: "12 min read",
-    link: "#",
-  },
-  {
-    title: "From Electronics to AI Engineering: My Career Journey",
-    excerpt: "Sharing my transition from Electronics Engineering to becoming an AI Engineer at a Big 4 consulting firm.",
-    date: "Oct 10, 2024",
-    readTime: "6 min read",
-    link: "#",
-  },
-  {
-    title: "R Shiny Best Practices for Enterprise Dashboards",
-    excerpt: "Lessons learned from building complex R Shiny applications for enterprise clients with thousands of users.",
-    date: "Sep 5, 2024",
-    readTime: "10 min read",
-    link: "#",
-  },
-];
+import { blogPosts } from "@/data/blogPosts";
 
 export const BlogSection = () => {
   return (
@@ -48,10 +19,10 @@ export const BlogSection = () => {
 
           {/* Blog Posts */}
           <div className="space-y-6">
-            {blogPosts.map((post, index) => (
-              <a
-                key={index}
-                href={post.link}
+            {blogPosts.map((post) => (
+              <Link
+                key={post.id}
+                to={`/blog/${post.id}`}
                 className="group block p-6 bg-card border border-border rounded-lg hover:border-primary/50 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -65,7 +36,11 @@ export const BlogSection = () => {
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        {post.date}
+                        {new Date(post.date).toLocaleDateString("en-GB", {
+                          day: "numeric",
+                          month: "short",
+                          year: "numeric",
+                        })}
                       </span>
                       <span className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
@@ -78,21 +53,8 @@ export const BlogSection = () => {
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
-          </div>
-
-          {/* View All Link */}
-          <div className="text-center mt-12">
-            <a
-              href="https://medium.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
-            >
-              View all posts on Medium
-              <ArrowRight className="w-4 h-4" />
-            </a>
           </div>
         </div>
       </div>

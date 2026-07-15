@@ -131,5 +131,6 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  // typography powers the `prose` classes the blog post renders through.
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

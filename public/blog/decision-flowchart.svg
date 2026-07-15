@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif">
+  <style>
+    .title { font-size: 18px; font-weight: 600; fill: #1a1a1a; }
+    .subtitle { font-size: 13px; fill: #555; }
+    .question { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+    .question-line { font-size: 12px; fill: #1a1a1a; }
+    .outcome-title { font-size: 15px; font-weight: 700; fill: #1a1a1a; }
+    .outcome-sub { font-size: 11px; fill: #444; }
+    .branch-label { font-size: 12px; font-weight: 700; fill: #444; }
+    .start-text { font-size: 13px; font-weight: 500; fill: #1a1a1a; }
+  </style>
+
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="380" y="32" class="title" text-anchor="middle">Decision flowchart</text>
+  <text x="380" y="52" class="subtitle" text-anchor="middle">Two questions, three outcomes</text>
+
+  <!-- Start box -->
+  <rect x="290" y="78" width="180" height="38" rx="19" fill="#f4f4f5" stroke="#a1a1aa"/>
+  <text x="380" y="102" class="start-text" text-anchor="middle">Your AI project</text>
+
+  <!-- Arrow down to Q1 -->
+  <line x1="380" y1="116" x2="380" y2="156" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Q1 diamond: center (380, 210), 360w x 100h -->
+  <polygon points="380,160 560,210 380,260 200,210" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="380" y="195" class="question" text-anchor="middle">Does the problem need ANY of:</text>
+  <text x="380" y="213" class="question-line" text-anchor="middle">row-level security · multi-hop agentic reasoning</text>
+  <text x="380" y="229" class="question-line" text-anchor="middle">&gt;50K tokens of context · coordinated multimodal?</text>
+
+  <!-- Q1 YES branch: right to Custom -->
+  <line x1="560" y1="210" x2="608" y2="210" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="585" y="200" class="branch-label" text-anchor="middle">YES</text>
+
+  <!-- Custom box at right -->
+  <rect x="610" y="170" width="140" height="80" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="680" y="195" class="outcome-title" text-anchor="middle">Custom build</text>
+  <text x="680" y="218" class="outcome-sub" text-anchor="middle">Full control;</text>
+  <text x="680" y="232" class="outcome-sub" text-anchor="middle">2–4 engineers</text>
+  <text x="680" y="246" class="outcome-sub" text-anchor="middle">× 2–4 months</text>
+
+  <!-- Q1 NO branch: down to Q2 -->
+  <line x1="380" y1="260" x2="380" y2="306" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="395" y="288" class="branch-label">NO</text>
+
+  <!-- Q2 diamond: center (380, 360), 320w x 100h -->
+  <polygon points="380,310 540,360 380,410 220,360" fill="#fef9c3" stroke="#ca8a04" stroke-width="1.5"/>
+  <text x="380" y="348" class="question" text-anchor="middle">Is the data primarily in Microsoft 365</text>
+  <text x="380" y="368" class="question-line" text-anchor="middle">AND is the problem mostly</text>
+  <text x="380" y="386" class="question-line" text-anchor="middle">Q&amp;A or summarisation?</text>
+
+  <!-- Q2 YES branch: down-left to Copilot -->
+  <line x1="295" y1="390" x2="215" y2="478" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="220" y="430" class="branch-label">YES</text>
+
+  <!-- Copilot box at left -->
+  <rect x="105" y="480" width="220" height="80" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="215" y="505" class="outcome-title" text-anchor="middle">Copilot Studio</text>
+  <text x="215" y="525" class="outcome-sub" text-anchor="middle">Ship in hours to days.</text>
+  <text x="215" y="540" class="outcome-sub" text-anchor="middle">Internal Q&amp;A or summarisation</text>
+  <text x="215" y="555" class="outcome-sub" text-anchor="middle">over Microsoft 365 content.</text>
+
+  <!-- Q2 NO branch: down-right to MCP -->
+  <line x1="465" y1="390" x2="545" y2="478" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="538" y="430" class="branch-label">NO</text>
+
+  <!-- MCP box at right -->
+  <rect x="435" y="480" width="220" height="80" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="545" y="505" class="outcome-title" text-anchor="middle">MCP servers</text>
+  <text x="545" y="525" class="outcome-sub" text-anchor="middle">Connect an LLM to specific</text>
+  <text x="545" y="540" class="outcome-sub" text-anchor="middle">external systems via</text>
+  <text x="545" y="555" class="outcome-sub" text-anchor="middle">a standard tool interface.</text>
+</svg>

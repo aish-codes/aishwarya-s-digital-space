@@ -1,6 +1,6 @@
-// Injects the server-rendered app into the built index.html, so the deployed page
-// contains real content instead of an empty <div id="root">.
-// Runs after `build:client` and `build:server` — see the build script in package.json.
+// Bakes each route into static HTML, so the deployed pages contain real content instead
+// of an empty <div id="root">. Runs after `build:client` and `build:server` — see the
+// build script in package.json.
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -26,8 +26,11 @@ function resolveSiteUrl() {
   return null;
 }
 
-function seoTags(siteUrl) {
-  const person = {
+const escapeHtml = (s) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+function personJsonLd(siteUrl) {
+  return {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Aishwarya",
@@ -38,7 +41,6 @@ function seoTags(siteUrl) {
       addressLocality: "Delhi",
       addressCountry: "IN",
     },
-    // Mirrors the Skills block in resume/resume.html — keep the two roughly in step.
     knowsAbout: [
       "Generative AI",
       "Large Language Models",
@@ -67,14 +69,17 @@ function seoTags(siteUrl) {
     ],
     ...(siteUrl ? { url: siteUrl } : {}),
   };
+}
 
+function seoTags(siteUrl, route) {
   const tags = [];
 
   if (siteUrl) {
+    const pageUrl = `${siteUrl}${route.path === "/" ? "/" : route.path}`;
     const ogImage = `${siteUrl}/og-image.png`;
     tags.push(
-      `<link rel="canonical" href="${siteUrl}/" />`,
-      `<meta property="og:url" content="${siteUrl}/" />`,
+      `<link rel="canonical" href="${pageUrl}" />`,
+      `<meta property="og:url" content="${pageUrl}" />`,
       `<meta property="og:image" content="${ogImage}" />`,
       `<meta property="og:image:width" content="1200" />`,
       `<meta property="og:image:height" content="630" />`,
@@ -84,25 +89,65 @@ function seoTags(siteUrl) {
   }
 
   tags.push(
-    `<script type="application/ld+json">${JSON.stringify(person)}</script>`,
+    `<script type="application/ld+json">${JSON.stringify(personJsonLd(siteUrl))}</script>`,
   );
 
   return tags.join("\n    ");
 }
 
-async function writeSitemap(siteUrl) {
+/** Applies per-page title/description/og:type over the template's defaults. */
+function applyRouteMeta(html, route) {
+  let out = html;
+
+  if (route.title) {
+    const title = escapeHtml(route.title);
+    out = out
+      .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
+      .replace(
+        /(<meta property="og:title" content=")[^"]*(")/,
+        `$1${title}$2`,
+      )
+      .replace(
+        /(<meta name="twitter:title" content=")[^"]*(")/,
+        `$1${title}$2`,
+      );
+  }
+
+  if (route.description) {
+    const desc = escapeHtml(route.description);
+    out = out
+      .replace(/(<meta\s+name="description"\s+content=")[^"]*(")/s, `$1${desc}$2`)
+      .replace(/(<meta\s+property="og:description"\s+content=")[^"]*(")/s, `$1${desc}$2`)
+      .replace(/(<meta\s+name="twitter:description"\s+content=")[^"]*(")/s, `$1${desc}$2`);
+  }
+
+  return out.replace(
+    /(<meta property="og:type" content=")[^"]*(")/,
+    `$1${route.ogType}$2`,
+  );
+}
+
+async function writeSitemap(siteUrl, routes) {
   const today = new Date().toISOString().slice(0, 10);
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${siteUrl}/</loc>
+  const urls = routes
+    .map(
+      (r) => `  <url>
+    <loc>${siteUrl}${r.path === "/" ? "/" : r.path}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+    <priority>${r.path === "/" ? "1.0" : "0.8"}</priority>
+  </url>`,
+    )
+    .join("\n");
+
+  await fs.writeFile(
+    path.join(distDir, "sitemap.xml"),
+    `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
 </urlset>
-`;
-  await fs.writeFile(path.join(distDir, "sitemap.xml"), sitemap);
+`,
+  );
 
   const robotsPath = path.join(distDir, "robots.txt");
   const robots = await fs.readFile(robotsPath, "utf8");
@@ -114,7 +159,7 @@ async function writeSitemap(siteUrl) {
   }
 }
 
-const { render } = await import(pathToFileURL(serverEntry).href);
+const { render, getRoutes } = await import(pathToFileURL(serverEntry).href);
 
 const template = await fs.readFile(templatePath, "utf8");
 if (!template.includes(ROOT_DIV)) {
@@ -123,27 +168,37 @@ if (!template.includes(ROOT_DIV)) {
   );
 }
 
-const appHtml = render("/");
-if (!appHtml.trim()) {
-  throw new Error("Server render produced empty markup.");
+const siteUrl = resolveSiteUrl();
+const routes = getRoutes();
+
+for (const route of routes) {
+  const appHtml = render(route.path);
+  if (!appHtml.trim()) {
+    throw new Error(`Server render produced empty markup for ${route.path}`);
+  }
+
+  const html = applyRouteMeta(
+    template
+      .replace(ROOT_DIV, `<div id="root">${appHtml}</div>`)
+      .replace(SEO_MARKER, seoTags(siteUrl, route)),
+    route,
+  );
+
+  const outPath = path.join(distDir, route.out);
+  await fs.mkdir(path.dirname(outPath), { recursive: true });
+  await fs.writeFile(outPath, html);
+  console.log(
+    `prerendered ${route.path.padEnd(34)} → dist/${route.out} (${appHtml.length} chars)`,
+  );
 }
 
-const siteUrl = resolveSiteUrl();
-
-const html = template
-  .replace(ROOT_DIV, `<div id="root">${appHtml}</div>`)
-  .replace(SEO_MARKER, seoTags(siteUrl));
-
-await fs.writeFile(templatePath, html);
-
 if (siteUrl) {
-  await writeSitemap(siteUrl);
+  await writeSitemap(siteUrl, routes);
 }
 
 // The SSR bundle is a build-time tool, not something to deploy.
 await fs.rm(path.join(root, ".prerender"), { recursive: true, force: true });
 
-console.log(`prerendered / → dist/index.html (${appHtml.length} chars of markup)`);
 console.log(
   siteUrl
     ? `site URL: ${siteUrl} (canonical, og:url, og:image, sitemap.xml written)`
