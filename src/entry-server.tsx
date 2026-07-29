@@ -3,6 +3,7 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import App from "./App.tsx";
 import { blogPosts } from "./data/blogPosts";
+import { galleries } from "./data/galleries";
 
 // Consumed by scripts/prerender.mjs at build time.
 export function render(url: string) {
@@ -45,6 +46,13 @@ export function getRoutes(): PrerenderRoute[] {
       out: `blog/${post.id}/index.html`,
       title: `${post.title} | Aishwarya`,
       description: post.excerpt,
+      ogType: "article",
+    })),
+    ...galleries.map((gallery) => ({
+      path: `/blog/${gallery.id}`,
+      out: `blog/${gallery.id}/index.html`,
+      title: `${gallery.title} | Aishwarya`,
+      description: gallery.excerpt,
       ogType: "article",
     })),
   ];
