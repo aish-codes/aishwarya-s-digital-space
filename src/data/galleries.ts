@@ -122,27 +122,7 @@ export const galleries: Gallery[] = [
       },
       {
         type: "text",
-        heading: "14' The streets will never forget",
-        body: "Countless moments that will live in memory for some time from now",
-      },
-      {
-        type: "photo",
-        embed: `<a id='j59ILe0nQEF1oIUwWwqt5g' class='gie-single' href='https://www.gettyimages.com/detail/2281893668' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'j59ILe0nQEF1oIUwWwqt5g',sig:'OQ1u3cF4yOr8oMu8goUqKWL2C2ZWCBPr3GpfN4BUx3s=',w:'594px',h:'427px',items:'2281893668',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
-        caption: "Vozinha became an instant social media celebrity with his follower count growing from 50K to 27.8M",
-      },
-      {
-        type: "photo",
-        embed: `<a id='j59ILe0nQEF1oIUwWwqt5g' class='gie-single' href='https://www.gettyimages.com/detail/2281893668' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'j59ILe0nQEF1oIUwWwqt5g',sig:'OQ1u3cF4yOr8oMu8goUqKWL2C2ZWCBPr3GpfN4BUx3s=',w:'594px',h:'427px',items:'2281893668',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
-        caption: "Vozinha became an instant social media celebrity with his follower count growing from 50K to 27.8M",
-      },
-      {
-        type: "text",
-        heading: "N' Despair",
-        body: "Sometimes it's not meant to be",
-      },
-      {
-        type: "text",
-        heading: "N' THE COACHES",
+        heading: "14' THE COACHES",
         body: "Some people believe football is a matter of life and death, I am very disappointed with that attitude. I can assure you it is much, much more important than that - Bill Shankly",
       },
       {
@@ -154,6 +134,91 @@ export const galleries: Gallery[] = [
         type: "photo",
         embed: `<a id='T7BQ6aM6QXxvH0WfYH_Y1w' class='gie-single' href='https://www.gettyimages.com/detail/2280777869' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'T7BQ6aM6QXxvH0WfYH_Y1w',sig:'PhPFr3GQMIUXOlWct3YY125376VHlHMWmrpBsPo5TcQ=',w:'594px',h:'396px',items:'2280777869',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
         caption: "Don Carlo",
+      },
+      {
+        type: "photo",
+        embed: `<a id='PHHUm2VzT29fHTVJakxa5w' class='gie-single' href='https://www.gettyimages.com/detail/2282757487' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'PHHUm2VzT29fHTVJakxa5w',sig:'CqCTejpIIsoywhlM1gCmP3cyMYbTVX2p0_FD02bm7x8=',w:'594px',h:'396px',items:'2282757487',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "El Loco",
+      },
+      {
+        type: "photo",
+        embed: `<a id='lQ5I3_7-QxdOAMNiNvC52w' class='gie-single' href='https://www.gettyimages.com/detail/2282069956' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'lQ5I3_7-QxdOAMNiNvC52w',sig:'zn7tskKWuC6sGRvuHonUd_yYVQboUeJuRQMiBiHO_I8=',w:'594px',h:'396px',items:'2282069956',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "Naglesmann",
+      },
+      {
+        type: "photo",
+        embed: `<a id='R8gtVBM4TcJiPyIHrp89rA' class='gie-single' href='https://www.gettyimages.com/detail/2286684165' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'R8gtVBM4TcJiPyIHrp89rA',sig:'yXmbmb18Jp5HYu6qDrs7YWa1TtqC3qkSZjVQjLlUKyw=',w:'594px',h:'357px',items:'2286684165',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "Deschamps. Underachiever?",
+      },
+      {
+        type: "photo",
+        embed: `<a id='DuQB_pOJRD1ZIQCgq-wIRA' class='gie-single' href='https://www.gettyimages.com/detail/2282685875' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'DuQB_pOJRD1ZIQCgq-wIRA',sig:'Juy0xj1DqA5HZNZOywiju5tm4rIwb_y2POopBO-eR1o=',w:'594px',h:'396px',items:'2282685875',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "Another Argentine named Lionel.",
+      },
+      {
+        type: "photo",
+        embed: `<a id='Tt5ClaobRudGBvD3bK72bg' class='gie-single' href='https://www.gettyimages.com/detail/2283785004' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'Tt5ClaobRudGBvD3bK72bg',sig:'KtC7xQ_UvCkhMewwOKSw185T6vmgU3fTdx_VPtzJRic=',w:'481px',h:'594px',items:'2283785004',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "The only Italian to feature this world cup",
+      },
+      {
+        type: "text",
+        heading: "21' It is the fans who make the World Cup what it is",
+        body: "Being a football fan entitles us to a temporary, recurring retreat, a short holiday from real existence",
+      },
+      {
+        type: "photo",
+        embed: `<a id='CxZngXNSR0B-s8yr43gBnQ' class='gie-single' href='https://www.gettyimages.com/detail/2283035866' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'CxZngXNSR0B-s8yr43gBnQ',sig:'7HxrobpWnnVy_T-jEt2Cyo0FaoCqcWMMOtxvlIICNx0=',w:'594px',h:'385px',items:'2283035866',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "It is what it is.",
+      },
+      {
+        type: "photo",
+        embed: `<a id='snHYwHlxS5pnDOxvIG5iag' class='gie-single' href='https://www.gettyimages.com/detail/2285555398' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'snHYwHlxS5pnDOxvIG5iag',sig:'w4W10mnR8dpxX__zp9jQngHPvwzHjV3jk9fFGY2mtF4=',w:'594px',h:'396px',items:'2285555398',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "Viking boat row",
+      },
+      {
+        type: "photo",
+        embed: `<a id='D8sKhIgOSNpFE0lJe0dBtQ' class='gie-single' href='https://www.gettyimages.com/detail/2281689443' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'D8sKhIgOSNpFE0lJe0dBtQ',sig:'HgnWEzGd7Ep8IAm63l125hc99qEjU_UPmoyP-X5KOl8=',w:'594px',h:'396px',items:'2281689443',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "Wearing a Real Madrid Jersey to a WC match. Classic Speed.",
+      },
+      {
+        type: "photo",
+        embed: `<a id='_99O0_BCSL9hdY9OA7AULg' class='gie-single' href='https://www.gettyimages.com/detail/2285661936' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'_99O0_BCSL9hdY9OA7AULg',sig:'aJ9aemdvOWA-ql0t8fRB0Ma9icRwla-9_8K8X_oGZ1E=',w:'594px',h:'412px',items:'2285661936',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "Beunos Aires. Not Jantar Mantar",
+      },
+      {
+        type: "photo",
+        embed: `<a id='zK6EP6twTGd8HsJb78Yf4g' class='gie-single' href='https://www.gettyimages.com/detail/2284510498' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'zK6EP6twTGd8HsJb78Yf4g',sig:'P9V8YaPooQESe18VSY_FxcOT2B0qSadUoM9TpLaq8lE=',w:'594px',h:'396px',items:'2284510498',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "Socceroos",
+      },
+      {
+        type: "photo",
+        embed: `<a id='Letzzn6lRzpphz-SiOOQrQ' class='gie-single' href='https://www.gettyimages.com/detail/2281607103' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'Letzzn6lRzpphz-SiOOQrQ',sig:'0tiH2Ewy0aFbfTNF6I8NkixxcYa_zw6OG37MyRz84UE=',w:'594px',h:'396px',items:'2281607103',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "A young Mexican fan",
+      },  
+      {
+        type: "photo",
+        embed: `<a id='JNUDU-RpSwZl9FgR6exERA' class='gie-single' href='https://www.gettyimages.com/detail/2282635548' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'JNUDU-RpSwZl9FgR6exERA',sig:'D0f-nByvV1TlfWOCFfarFEHvrAjBMimX3zdxYBUkFFk=',w:'594px',h:'396px',items:'2282635548',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "Japanese culture is unbelievable",
+      },
+      {
+        type: "photo",
+        embed: `<a id='uODHXEpTRS9gn3kum7SCbQ' class='gie-single' href='https://www.gettyimages.com/detail/2284672251' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'uODHXEpTRS9gn3kum7SCbQ',sig:'4AQTwxlL7WzmKWsTTEeGrhta09fAYJRESeJySGWMvTo=',w:'594px',h:'396px',items:'2284672251',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "EGY vs ARG screening at Gaza",
+      },
+      {
+        type: "text",
+        heading: "21' The streets will never forget",
+        body: "Countless moments that will live in memory for some time from now",
+      },
+      {
+        type: "photo",
+        embed: `<a id='j59ILe0nQEF1oIUwWwqt5g' class='gie-single' href='https://www.gettyimages.com/detail/2281893668' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>Embed from Getty Images</a><script>window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'j59ILe0nQEF1oIUwWwqt5g',sig:'OQ1u3cF4yOr8oMu8goUqKWL2C2ZWCBPr3GpfN4BUx3s=',w:'594px',h:'427px',items:'2281893668',caption: true ,tld:'com',is360: false })});</script><script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>`,
+        caption: "Vozinha became an instant social media celebrity with his follower count growing from 50K to 27.8M",
+      },
+      {
+        type: "text",
+        heading: "22' Despair",
+        body: "Sometimes it's not meant to be",
       },
     ],
   },
